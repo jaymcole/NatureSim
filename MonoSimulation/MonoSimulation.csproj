@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{670862DF-C446-4B3A-941C-85F158855266}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MonoSimulation</RootNamespace>
+    <AssemblyName>MonoSimulation</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MonoGamePlatform>DesktopGL</MonoGamePlatform>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\$(MonoGamePlatform)\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;LINUX</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\$(MonoGamePlatform)\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE;LINUX</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Engine\Events\Base\EventBase.cs" />
+    <Compile Include="Engine\Events\Base\EventReasonBase.cs" />
+    <Compile Include="Engine\Events\Base\NotifierBase.cs" />
+    <Compile Include="Engine\Events\EventReason\ReasonDie.cs" />
+    <Compile Include="Engine\Events\EventReason\ReasonGeneric.cs" />
+    <Compile Include="Engine\Events\EventReason\ReasonGrow.cs" />
+    <Compile Include="Engine\Events\OnEvents\OnDeath.cs" />
+    <Compile Include="Engine\Events\OnEvents\OnEnterTile.cs" />
+    <Compile Include="Engine\Events\OnEvents\OnLeaveTile.cs" />
+    <Compile Include="Engine\Events\OnEvents\OnSleep.cs" />
+    <Compile Include="Engine\Events\OnEvents\OnTime.cs" />
+    <Compile Include="Engine\Events\OnEvents\OnWake.cs" />
+    <Compile Include="Engine\Events\Base\TimeNotifier.cs" />
+    <Compile Include="Engine\Utilities\DisplayMessages.cs" />
+    <Compile Include="Enums\Diet.cs" />
+    <Compile Include="Enums\Direction.cs" />
+    <Compile Include="EnvironmentProperties\Elevation.cs" />
+    <Compile Include="EnvironmentProperties\Environment.cs" />
+    <Compile Include="EnvironmentProperties\Light.cs" />
+    <Compile Include="EnvironmentProperties\Moisture.cs" />
+    <Compile Include="EnvironmentProperties\Temperature.cs" />
+    <Compile Include="Engine\Utilities\SimpleFpsCounter.cs" />
+    <Compile Include="Exceptions\InvalidDirectionException.cs" />
+    <Compile Include="Game1.cs" />
+    <Compile Include="GameObjects\AnimalObject.cs" />
+    <Compile Include="GameObjects\Behaviors\PlantBehavior.cs" />
+    <Compile Include="GameObjects\PlantObject.cs" />
+    <Compile Include="Interfaces\BaseControls\IEventReason.cs" />
+    <Compile Include="Interfaces\BaseControls\IGameEvent.cs" />
+    <Compile Include="Interfaces\BaseControls\INotification.cs" />
+    <Compile Include="Interfaces\BaseControls\INotifier.cs" />
+    <Compile Include="Interfaces\BaseControls\ISubscriber.cs" />
+    <Compile Include="Interfaces\BaseControls\IUpdateable.cs" />
+    <Compile Include="Interfaces\IBehavior.cs" />
+    <Compile Include="GameObjects\Behaviors\PlayerRunner.cs" />
+    <Compile Include="GameObjects\Behaviors\Wonderer.cs" />
+    <Compile Include="Engine\Cameras\Basic3dExampleCamera.cs" />
+    <Compile Include="GameObjects\ObjectManager.cs" />
+    <Compile Include="Generators\ModelGenerator.cs" />
+    <Compile Include="Generators\Seed.cs" />
+    <Compile Include="Generators\TerrainRandomMounds.cs" />
+    <Compile Include="GameObjects\GameObject.cs" />
+    <Compile Include="GameObjects\Organs\Heart.cs" />
+    <Compile Include="Interfaces\IOrgan.cs" />
+    <Compile Include="Interfaces\ITerrainGenerator.cs" />
+    <Compile Include="Generators\TerrainCenterPuddle.cs" />
+    <Compile Include="Globals\GlobalVariables.cs" />
+    <Compile Include="Map\GameMap.cs" />
+    <Compile Include="Map\Tile.cs" />
+    <Compile Include="Map\WaterTable.cs" />
+    <Compile Include="Map\Weather.cs" />
+    <Compile Include="Map\WeatherForecaster.cs" />
+    <Compile Include="Interfaces\IRenderable.cs" />
+    <Compile Include="Models\JModel.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icon.ico" />
+    <EmbeddedResource Include="Icon.bmp" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <MonoGameContentReference Include="Content\Content.mgcb" />
+    <None Include="$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\x86\SDL2.dll">
+      <Link>x86\SDL2.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\x64\SDL2.dll">
+      <Link>x64\SDL2.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\x86\soft_oal.dll">
+      <Link>x86\soft_oal.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\x64\soft_oal.dll">
+      <Link>x64\soft_oal.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\x86\libSDL2-2.0.so.0">
+      <Link>x86\libSDL2-2.0.so.0</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\x64\libSDL2-2.0.so.0">
+      <Link>x64\libSDL2-2.0.so.0</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\x86\libopenal.so.1">
+      <Link>x86\libopenal.so.1</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\x64\libopenal.so.1">
+      <Link>x64\libopenal.so.1</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\libSDL2-2.0.0.dylib">
+      <Link>libSDL2-2.0.0.dylib</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\libopenal.1.dylib">
+      <Link>libopenal.1.dylib</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\MonoGame.Framework.dll.config">
+      <Link>MonoGame.Framework.dll.config</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="app.config" />
+    <None Include="app.manifest" />
+    <Content Include="Content\Fonts\Font.spritefont" />
+    <None Include="Content\Models\Foliage\ForestPack\Bushes\Bush1.1.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Bushes\Bush1.2.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Bushes\Bush1.3.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Bushes\Bush2.1.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Bushes\Bush2.2.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Bushes\Bush2.3.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Bushes\Bush3.1.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Bushes\Bush3.2.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Bushes\Bush3.3.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Flowers\Flower1.1.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Flowers\Flower1.2.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Flowers\Flower1.3.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Flowers\Flower2.1.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Flowers\Flower2.2.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Flowers\Flower2.3.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Flowers\Flower3.1.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Flowers\Flower3.2.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Flowers\Flower3.3.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Grass\Grass.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Mushrooms\Mushroom1.1.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Mushrooms\Mushroom1.2.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Mushrooms\Mushroom2.1.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Mushrooms\Mushroom2.2.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Stone\Stone1.1.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Stone\Stone1.2.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Stone\Stone1.3.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Stone\Stone2.1.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Stone\Stone2.2.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Stone\Stone2.3.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Stone\Stone3.1.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Stone\Stone3.2.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Stone\Stone3.3.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Trees\Tree1.1.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Trees\Tree1.2.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Trees\Tree1.3.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Trees\Tree2.1.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Trees\Tree2.2.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Trees\Tree2.3.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Trees\Tree3.1.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Trees\Tree3.2.fbx" />
+    <None Include="Content\Models\Foliage\ForestPack\Trees\Tree3.3.fbx" />
+    <None Include="Content\Models\Foliage\Plants\banana_plant.fbx" />
+    <None Include="Content\Models\Animals\Crab.fbx" />
+    <None Include="Content\Models\Foliage\Grass\grass_01.obj" />
+    <None Include="Content\Models\Foliage\Grass\grass_01.mtl" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Content\Fonts\Monospace.ttf" />
+    <None Include="Content\Fonts\MonospaceBold.ttf" />
+    <None Include="Content\Fonts\MonospaceOblique.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Content\Images\Water\water_01.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="Content\Images\clouds.png" />
+    <Content Include="Content\Images\Clouds\clouds_seamless_01.png" />
+    <Content Include="Content\Images\Foliage\Grass\grass_bush.png" />
+    <Content Include="Content\Images\Foliage\Grass\grass_medium.png" />
+    <Content Include="Content\Images\Foliage\Grass\grass_short.png" />
+    <Content Include="Content\Images\Foliage\Grass\grass_tall.png" />
+    <Content Include="Content\Images\Land\land_100x100_01.png" />
+    <Content Include="Content\Images\Land\land_200x200_01.png" />
+    <Content Include="Content\Images\Land\land_50x50_01.png" />
+    <Content Include="Content\Images\Land\land_diag_2x2.png" />
+    <Content Include="Content\Images\Land\land_diag_4x8.png" />
+    <Content Include="Content\Images\Misc\crab.png" />
+    <Content Include="Content\Images\Misc\leaning_woman.png" />
+    <Content Include="Content\Images\Misc\man_small.png" />
+    <Content Include="Content\Images\Untitled.png" />
+    <Content Include="Content\Images\Water\water_02.png" />
+    <Content Include="Content\Shaders\basic2.fx" />
+    <Content Include="Content\Shaders\NormalMapEffect.fx" />
+    <Content Include="Content\Shaders\waterFromJava.fx" />
+    <Content Include="Content\Shaders\water.fx" />
+    <Content Include="Content\Shaders\textured.fx" />
+    <EmbeddedResource Include="Content\Images\face.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="Content\Shaders\basic.fx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Content\Images\Washington.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Engine\Effects\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Priority Queue\Priority Queue.csproj">
+      <Project>{1531c1ea-bd53-41d1-a34b-cfcdf79d2651}</Project>
+      <Name>Priority Queue</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
